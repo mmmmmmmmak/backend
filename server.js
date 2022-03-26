@@ -99,6 +99,7 @@ app.use(cors());
 
 });
 
-app.listen(process.env.PORT || 3000, () => console.log('My port is: ${process.ENV.PORT}.'))
+let port = process.env.PORT
+app.listen(process.env.PORT || 3000, () => console.log('My port is: ${port}.'))
 
 module.exports = router;

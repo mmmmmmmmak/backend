@@ -23,6 +23,10 @@ const { useImperativeHandle } = require('react');
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+app.get('/saving', async (req, res) => {
+  res.send('ok')
+})
+
   app.all('/saveUserWallet', async (req, res) => {
     let urlRequest = url.parse(req.url, true)
     wallett = urlRequest.query.wallet

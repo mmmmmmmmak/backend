@@ -58,12 +58,13 @@ app.use(cors());
 
 });
 
-const io = require('socket.io')(app, {
+const io = require('socket.io')(httpServer, {
   cors: {
     origin: '*',
   }
 });
 
+httpServer.listen(4000);
 var roomno = 1;
 
 // io.on('connection', (socket) => {

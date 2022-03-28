@@ -58,9 +58,9 @@ app.use(cors());
 
 });
 
-var server = app.listen(process.env.PORT);
+var port = process.env.PORT
 
-const io = require('socket.io')(server, {
+const io = require('socket.io')(app.listen(port), {
   cors: {
     origin: '*',
   }
@@ -84,7 +84,6 @@ var roomno = 1;
 // io.listen(port);
 // console.log('listening on port ', port);
 
-let port = process.env.PORT
-app.listen(server || 3000, () => console.log('My port is: ' + server))
+app.listen(port || 3000, () => console.log('My port is: ' + port))
 
 module.exports = router;

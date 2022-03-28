@@ -2,13 +2,14 @@ const { response } = require('express');
 var express = require('express');
 var router = express.Router();
 const app = express();
-const { User, createUser, getUserData } = require('./routes/src/panels/mongo.js');
+// const { User, createUser, getUserData } = require('./src/panels/mongo.js');
 const bodyParser = require('body-parser');
 const { parse } = require('querystring');
 const crypto = require('crypto');
 const cors = require('cors');
 const url = require('url')
 
+const config = require('./config');
 const { useImperativeHandle } = require('react');
 
 /* GET users listing. */
@@ -55,51 +56,35 @@ app.use(cors());
   
           });
         }
-    // const ordered = {};
-
-    // Object.keys(urlParams).sort().forEach((key) => {
-    //     if (key.slice(0, 3) === 'vk_') {
-    //         ordered[key] = urlParams[key];
-    //     }
-    // });
-    
-    // const stringParams = qs.stringify(ordered);
-    // const paramsHash = crypto
-    // .createHmac('sha256', config.secretKey)
-    // .update(stringParams)
-    // .digest()
-    // .toString('base64')
-    // .replace(/\+/g, '-')
-    // .replace(/\//g, '_')
-    // .replace(/=$/, '');
-
-
-    // const user = Number(ordered.vk_user_id);
-
-    // const result = await User.find({ user_id: user });
-    // const data = result[0];
-
-    // if (!data) {
-
-    //     const newUser = new User({
-    //         user_id: user,
-    //         money: 2000,
-    //     });
-
-    //     return newUser.save((error) => {
-
-    //         if (error) {
-    //             return res.statusCode(500).send('Internal Server Error');
-    //         }
-
-    //     });
-
-    // }
-
 
 });
 
-let port = process.env.PORT
-app.listen(process.env.PORT || 3000, () => console.log('My port is: ' + port))
+var server = app.listen(4000);
+
+const io = require('socket.io')(server, {
+  cors: {
+    origin: '*',
+  }
+});
+
+var roomno = 1;
+
+io.on('connection', (socket) => {
+  socket.on('rooms', (no) => {
+    console.log('client wallet is:', no);
+    socket.emit('room', 1);
+  });
+  // client.join("room-"+roomno);
+  // //Send this event to everyone in the room.
+  // io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
+  // client.leave("room-"+roomno);
+});
+
+
+const port = 8000;
+io.listen(port);
+console.log('listening on port ', port);
+
+app.listen(3000, () => console.log('My port is: 3000.'))
 
 module.exports = router;

@@ -58,7 +58,7 @@ app.use(cors());
 
 });
 
-var server = app.listen(4000);
+var server = app.listen(process.env.PORT);
 
 const io = require('socket.io')(server, {
   cors: {
@@ -80,9 +80,9 @@ io.on('connection', (socket) => {
 });
 
 
-const port = 8000;
-io.listen(port);
-console.log('listening on port ', port);
+const port = process.env.PORT;
+io.listen(process.env.PORT);
+console.log('listening on port ', process.env.PORT);
 
 app.listen(process.env.PORT || 3000, () => console.log('My port is: ' + process.env.PORT))
 

@@ -22,5 +22,5 @@ io.on('connection', (socket) => {
 
 
 const port = 8000;
-io.listen(port);
+io.listen(procces.env.PORT || port);
 console.log('listening on port ', port);

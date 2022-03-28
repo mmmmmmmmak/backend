@@ -84,7 +84,7 @@ var roomno = 1;
 // io.listen(port);
 // console.log('listening on port ', port);
 
-let port1 = process.env.PORT
-app.listen(process.env.PORT || 3000, () => console.log('My port is: ' + port1))
+let port = process.env.PORT
+app.listen(3000, () => console.log('My port is: ' + port))
 
 module.exports = router;

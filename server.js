@@ -58,31 +58,7 @@ app.use(cors());
 
 });
 
-const io = require('socket.io')(httpServer, {
-  cors: {
-    origin: '*',
-  }
-});
-
-httpServer.listen(4000);
-var roomno = 1;
-
-// io.on('connection', (socket) => {
-//   socket.on('rooms', (no) => {
-//     console.log('client wallet is:', no);
-//     socket.emit('room', 1);
-//   });
-//   // client.join("room-"+roomno);
-//   // //Send this event to everyone in the room.
-//   // io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
-//   // client.leave("room-"+roomno);
-// });
-
-
-// const port = 8000;
-// io.listen(port);
-// console.log('listening on port ', port);
-
+port = process.env.PORT
 
 app.listen(port || 3000, () => console.log('My port is: ' + port))
 

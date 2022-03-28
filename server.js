@@ -2,7 +2,6 @@ const { response } = require('express');
 var express = require('express');
 var router = express.Router();
 const app = express();
-const app1 = express();
 const { User, createUser, getUserData } = require('./routes/src/panels/mongo.js');
 const bodyParser = require('body-parser');
 const { parse } = require('querystring');
@@ -59,9 +58,7 @@ app.use(cors());
 
 });
 
-var port = process.env.PORT
-
-const io = require('socket.io')(app.listen(port), {
+const io = require('socket.io')(app, {
   cors: {
     origin: '*',
   }
@@ -86,6 +83,6 @@ var roomno = 1;
 // console.log('listening on port ', port);
 
 
-app1.listen(port || 3000, () => console.log('My port is: ' + port))
+app.listen(port || 3000, () => console.log('My port is: ' + port))
 
 module.exports = router;

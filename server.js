@@ -81,8 +81,8 @@ io.on('connection', (socket) => {
 
 
 const port = 8000;
-io.listen(port || process.env.PORT);
-console.log('listening on port ', process.env.PORT);
+io.listen(port);
+console.log('listening on port ', port);
 
 app.listen(process.env.PORT || 3000, () => console.log('My port is: ' + process.env.PORT))
 

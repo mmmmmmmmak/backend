@@ -2,6 +2,7 @@ const { response } = require('express');
 var express = require('express');
 var router = express.Router();
 const app = express();
+const app1 = express();
 const { User, createUser, getUserData } = require('./routes/src/panels/mongo.js');
 const bodyParser = require('body-parser');
 const { parse } = require('querystring');
@@ -84,6 +85,6 @@ var roomno = 1;
 // io.listen(port);
 // console.log('listening on port ', port);
 
-app.listen(port || 3000, () => console.log('My port is: ' + port))
+app1.listen(port || 3000, () => console.log('My port is: ' + port))
 
 module.exports = router;

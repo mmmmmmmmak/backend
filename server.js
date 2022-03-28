@@ -9,7 +9,6 @@ const crypto = require('crypto');
 const cors = require('cors');
 const url = require('url')
 
-const config = require('./config');
 const { useImperativeHandle } = require('react');
 
 /* GET users listing. */
@@ -85,6 +84,6 @@ const port = 8000;
 io.listen(port);
 console.log('listening on port ', port);
 
-app.listen(3000, () => console.log('My port is: 3000.'))
+app.listen(process.env.PORT || 3000, () => console.log('My port is: ' + process.env.PORT))
 
 module.exports = router;

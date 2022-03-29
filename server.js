@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
     let find_id = url.parse(id, true)
     let idisfinds = find_id.query.vk_user_id
     console.log('client id is:', idisfinds)
-    const client = await User.find({ wallet: wallet });
+    const client = await User.find({ user_id: idisfind });
     const data = client[0];
     if (!data) {
 

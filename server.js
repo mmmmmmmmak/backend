@@ -58,13 +58,13 @@ app.use(cors());
 
 // });
 
-var server = app.listen(4000 || process.env.PORT);
-
-const io = require('socket.io')(server, {
-  cors: {
-    origin: '*',
-  }
+var server = app.listen(8000);
+var io = require('socket.io')(server, {
+    cors: {
+      origin: '*',
+    }
 });
+
 
 io.on('connection', (socket) => {
   socket.on('login', async (wallet, id) => {

@@ -12,7 +12,7 @@ var roomno = 1;
 io.on('connection', (socket) => {
   socket.on('mywalletis', (no) => {
     console.log('client wallet is:', no);
-    socket.emit('wallet', 1);
+    socket.emit('wallet', no);
   });
   // client.join("room-"+roomno);
   // //Send this event to everyone in the room.

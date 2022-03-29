@@ -58,7 +58,7 @@ app.use(cors());
 
 // });
 
-var server = app.listen(4000);
+var server = app.listen(4000 || process.env.PORT);
 
 const io = require('socket.io')(server, {
   cors: {

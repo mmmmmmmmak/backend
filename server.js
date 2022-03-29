@@ -30,7 +30,8 @@ io.on('connection', (socket) => {
               user_id: idisfinds,
               wallet: wallet,
           });
-  
+            
+        console.log('user +1')
           return newUser.save((error) => {
   
               if (error) {

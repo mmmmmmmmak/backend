@@ -102,6 +102,5 @@ const port = 8000;
 io.listen(port || proccess.env.PORT);
 console.log('listening on port ', port);
 
-app.listen(3000 || proccess.env.PORT, () => console.log('My port is: 3000.'))
 
 module.exports = router;

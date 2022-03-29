@@ -57,7 +57,7 @@ const { useImperativeHandle } = require('react');
 
 // });
 
-var server = app.listen(8000);
+var server = app.listen(8000 || proccess.env.PORT);
 var io = require('socket.io')(server, {
     cors: {
       origin: '*',
@@ -101,7 +101,7 @@ io.on('connection', (socket) => {
 
 
 const port = 8000;
-io.listen(8000 || proccess.env.PORT);
+io.listen(8000);
 console.log('listening on port ', port);
 
 

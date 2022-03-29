@@ -20,7 +20,6 @@ const { useImperativeHandle } = require('react');
 // app.listen(3000, () => console.log('Example app is listening on port 3000.'))
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
 
 //   app.all('/saveUserWallet', async (req, res) => {
 //     let urlRequest = url.parse(req.url, true)

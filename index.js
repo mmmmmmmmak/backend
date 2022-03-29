@@ -1,6 +1,6 @@
 const express = require("express")
 var app = express();
-var server = app.listen(4000);
+var server = app.listen(8000);
 var io = require('socket.io')(server, {
     cors: {
       origin: '*',

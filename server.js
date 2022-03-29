@@ -9,7 +9,6 @@ const crypto = require('crypto');
 const cors = require('cors');
 const url = require('url')
 
-const config = require('./config');
 const { useImperativeHandle } = require('react');
 
 /* GET users listing. */

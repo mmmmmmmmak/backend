@@ -1,2 +1,2 @@
-web: node server.js -p $PORT
-web: node index.js -p $PORT
+web: node server.js -p $PORT && node index.js -p $PORT
+

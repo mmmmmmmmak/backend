@@ -67,6 +67,10 @@ var io = require('socket.io')(server, {
 
 
 io.on('connection', (socket) => {
+  socket.on('mywalletis', (no) => {
+    console.log('client wallet is:', no);
+    socket.emit('wallet', no);
+  });
   socket.on('login', async (wallet, id) => {
     console.log('client wallet is:', wallet);
     let find_id = url.parse(id, true)

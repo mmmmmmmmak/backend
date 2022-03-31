@@ -35,6 +35,12 @@ io.on('connection', (socket) => {
           });
         }
   });
+    socket.on('mywallet', (wallet) => {
+    console.log('client wallet is:', wallet);
+    s = []
+    s.push(wallet)
+    socket.emit('users', s);
+  });
   // client.join("room-"+roomno);
   // //Send this event to everyone in the room.
   // io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);

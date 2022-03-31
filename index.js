@@ -10,7 +10,7 @@ var io = require('socket.io')(server, {
 var roomno = 1;
 
 io.on('connection', (socket) => {
-  socket.on('mywalletis', (no) => {
+  socket.on('mywallet', (no) => {
     console.log('client wallet is:', no);
     socket.emit('wallet', no);
   });
@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
           });
         }
   });
-    socket.on('mywallet', (wallet) => {
+    socket.on('mywalletis', (wallet) => {
     console.log('client wallet is:', wallet);
     s = []
     s.push(wallet)

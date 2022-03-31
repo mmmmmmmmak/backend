@@ -37,7 +37,7 @@ io.on('connection', (socket) => {
   });
     socket.on('mywalletis', (wallet) => {
     console.log('client wallet is:', wallet);
-    s = []
+    let s = []
     s.push(wallet)
     socket.emit('users', s);
   });
